@@ -22,7 +22,7 @@ const db = knex({
 }
 });
 
-app.get('/', (req, res) => {res.send(database.users)});
+app.get('/', (req, res) => {"it is working"});
 app.put('/image', (req, res) => {image.countEntries(req, res, db, bcrypt)});
 app.get('/profile/:id', (req, res) => {profile.getProfile(req, res, db)});
 app.post('/signin', (req,res) => {signin.onSignIn(req, res, db, bcrypt)});
@@ -30,6 +30,6 @@ app.post('/register', (req,res) => {register.handleRegister(req, res, db, bcrypt
 app.post('/imageurl', (req, res) => {image.handleApiCall(req, res)});
 
 
-app.listen(3000, () => {
-    console.log('app is running on port 3000')
+app.listen(process.env.PORT, () => {
+    console.log(`app is running on port ${process.env.PORT}`)
 })
