@@ -22,7 +22,7 @@ const db = knex({
 }
 });
 
-app.get('/', (req, res) => {"it is working"});
+app.get('/', (req, res) => {res.send('it is working')});
 app.put('/image', (req, res) => {image.countEntries(req, res, db, bcrypt)});
 app.get('/profile/:id', (req, res) => {profile.getProfile(req, res, db)});
 app.post('/signin', (req,res) => {signin.onSignIn(req, res, db, bcrypt)});
